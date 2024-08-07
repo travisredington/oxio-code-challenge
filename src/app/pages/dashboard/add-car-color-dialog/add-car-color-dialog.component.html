@@ -1,0 +1,83 @@
+<h2 mat-dialog-title>Add a Car Color</h2>
+
+<form
+    #carColorForm="ngForm"
+    name="form"
+    (ngSubmit)="carColorForm.form.valid && onSubmit(carColorForm.value)"
+  >
+  <mat-dialog-content>
+    <div class="form-floating">
+      <input type="text"
+      class="form-control"
+      id="colorName"
+      #colorName="ngModel"
+      name="colorName"
+      [(ngModel)]="form.colorName"
+      required
+      >
+      <label for="colorName">Color Name</label>
+      <div class="text-danger" *ngIf="colorName.dirty && colorName.errors?.['required']">This field is required</div>
+    </div>
+
+    <div class="form-floating">
+      <div class="form-floating">
+        <input type="color"
+        class="form-control"
+        id="colorValue"
+        value="#ff0000"
+        #colorValue="ngModel"
+        name="colorValue"
+        [(ngModel)]="form.colorValue"
+        required
+        >
+        <label for="colorValue">Pick a Color</label>
+        <div class="text-danger" *ngIf="colorValue.dirty && colorValue.errors?.['required']">This field is required</div>
+      </div>
+    </div>
+
+    <div class="form-floating">
+      <input type="text"
+      class="form-control"
+      id="colorCategory"
+      #colorCategory="ngModel"
+      name="colorCategory"
+      [(ngModel)]="form.colorCategory"
+      required
+      >
+      <label for="colorCategory">Color Category</label>
+      <div class="text-danger" *ngIf="colorCategory.dirty && colorCategory.errors?.['required']">This field is required</div>
+    </div>
+
+    <div class="form-floating">
+      <input type="text"
+      class="form-control"
+      id="colorYear"
+      #colorYear="ngModel"
+      name="colorYear"
+      [(ngModel)]="form.colorYear"
+      required
+      >
+      <label for="colorYear">Year Issued</label>
+      <div class="text-danger" *ngIf="colorYear.dirty && colorYear.errors?.['required']">This field is required</div>
+    </div>
+
+    <div class="form-floating">
+      <input type="text"
+      class="form-control"
+      id="colorNumber"
+      #colorNumber="ngModel"
+      name="colorNumber"
+      [(ngModel)]="form.colorNumber"
+      required
+      >
+      <label for="colorNumber">Number of Cars</label>
+      <div class="text-danger" *ngIf="colorNumber.dirty && colorNumber.errors?.['required']">This field is required</div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button type="button" mat-button mat-dialog-close class="btn btn-secondary">Cancel</button>
+    <button type="submit" mat-button mat-dialog-close class="btn btn-primary" [disabled]="!carColorForm.valid">Submit</button>
+  </mat-dialog-actions>
+</form>
+

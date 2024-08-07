@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-9">
+    <button mat-button (click)="openDialog()">+ Add a Car Color</button>
+  </div>
+
+  <div class="form-floating col-xs-12 col-sm-3">
+    <input type="text" class="form-control searchInput" id="floatingInput" placeholder="" (keyup)="applyFilter($event);" #searchInput>
+    <label for="floatingInput">Search...</label>
+  </div>
+</div>
+
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+<div class="search-table-outer">
+  <table mat-table matSort (matSortChange)="announceSortChange($event)" [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <div *ngFor="let row of tableFormat;">
+      <ng-container [matColumnDef]="row.name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ row.title }} </th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="row.name === 'hex'" [ngStyle]="{'height': '25px', 'width': '25px', 'background-color': element[row.name] }"></div>
+          <span *ngIf="row.name !== 'hex'">{{ element[row.name] }}</span>
+        </td>
+      </ng-container>
+    </div>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+

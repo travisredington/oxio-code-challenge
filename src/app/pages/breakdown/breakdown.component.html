@@ -1,0 +1,16 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+<div class="container" *ngIf="!loading">
+  <div class="row">
+    <div class="col content-container" *ngIf="dataLoaded">
+      <h2>The Breakdown</h2>
+
+      <p>Take a look at the data and let's move forward into tomorrow's people's fire!</p>
+
+      <div class="chart-container" *ngFor="let chart of charts; let i = index;">
+        <app-chart [chartData]="chart"></app-chart>
+        <hr *ngIf="i < charts.length-1">
+      </div>
+    </div>
+  </div>
+</div>

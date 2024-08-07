@@ -1,0 +1,24 @@
+@import "../../../styles/variables.scss";
+
+header {
+  background-color: $dark-blue;
+
+  .logo-container {
+    padding-right: 1rem;
+    margin-right: 1rem;
+    border-right: 1px dotted $light-gray;
+  }
+
+  .nav-container {
+    li {
+      a {
+        color: $light-gray;
+
+        &.nav-active {
+          color: white;
+        }
+      }
+    }
+  }
+
+}

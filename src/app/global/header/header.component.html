@@ -1,0 +1,14 @@
+<header class="p-3">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a [routerLink]="''" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none logo-container">
+        <img src="assets/global/logo.png" alt="" height="100"> <span class="fire">Pinetree Automotive</span>
+      </a>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 nav-container">
+        <li><a [routerLink]="'/'" routerLinkActive="nav-active" class="nav-link px-2" [routerLinkActiveOptions]="{exact: true}">Dashboard</a></li>
+        <li><a [routerLink]="'/breakdown'" routerLinkActive="nav-active" class="nav-link px-2">Breakdown</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
